@@ -3,18 +3,23 @@ import {Link} from 'react-router-dom';
 
 import Sobre from '../components/Sobre/Sobre';
 import ServiceList from '../components/Servicos/ServiceList';
+import CuidadoresList from '../components/Cuidadores/CuidadoresList';
+import Depoimento from '../components/Depoimento/Depoimento';
 
 import img1 from '../assets/images/hero-img01.png';
 import img2 from '../assets/images/hero-img02.png';
 import img3 from '../assets/images/hero-img03.png';
 import img4 from '../assets/images/feature-img.png';
 import img5 from '../assets/images/video-icon.png';
+import img6 from '../assets/images/faq-img.png';
+
 import icon1 from '../assets/images/icon01.png';
 import icon2 from '../assets/images/icon02.png';
 import icon3 from '../assets/images/icon03.png';
 import icon4 from '../assets/images/avatar-icon.png';
 
 import {BsArrowRight} from 'react-icons/bs';
+import FaqList from '../components/Faq/FaqList';
 
 
 const Home = () => {
@@ -222,8 +227,50 @@ const Home = () => {
           </div>
       </div>
     </section>
+    {/* SEÇÃO RECURSOS FINAL*/}
 
-    
+    {/* SEÇÃO CUIDADORES */}
+    <section>
+      <div className="container">
+      <div className="xl:w-[470px] mx-auto">
+          <h2 className="heading text-center">Cuidadores Destaque</h2>
+          <p className="text__para text-center">Cuidados especializados para todos, garantimos uma qualidade de classe mundial.</p>
+        </div>
+
+        <CuidadoresList />
+      </div>
+    </section>
+    {/* SEÇÃO CUIDADORES FIM */}
+
+    {/* SEÇÃO FAQ */}
+    <section>
+      <div className="container">
+        <div className="flex justify-between gap-[50px] lg:gap-0">
+          <div className="w-1/2 hidden md:block"><img src={img6} alt="Imagem do Faq" /></div>
+
+          <div className="w-full md:w-1/2">
+              <h2 className="heading">Perguntas Frequentes dos nossos clientes</h2>
+
+              <FaqList />
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SEÇÃO FAQ FINAL*/}
+
+    {/* SEÇÃO DEPOIMENTO */}
+
+    <section>
+      <div className="container">
+      <div className="xl:w-[470px] mx-auto">
+          <h2 className="heading text-center">O que nossos clientes estão dizendo</h2>
+          <p className="text__para text-center">Cuidados especializados para todos, garantimos uma qualidade de classe mundial.</p>
+        </div>
+        <Depoimento />
+      </div>
+    </section>
+
+    {/* SEÇÃO DEPOIMENTO  FIM*/}
 
   </>
 };
