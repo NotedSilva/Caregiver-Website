@@ -1,14 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import Sobre from '../components/Sobre/Sobre';
+import ServiceList from '../components/Servicos/ServiceList';
+
 import img1 from '../assets/images/hero-img01.png';
 import img2 from '../assets/images/hero-img02.png';
 import img3 from '../assets/images/hero-img03.png';
+import img4 from '../assets/images/feature-img.png';
+import img5 from '../assets/images/video-icon.png';
 import icon1 from '../assets/images/icon01.png';
 import icon2 from '../assets/images/icon02.png';
 import icon3 from '../assets/images/icon03.png';
+import icon4 from '../assets/images/avatar-icon.png';
 
 import {BsArrowRight} from 'react-icons/bs';
+
 
 const Home = () => {
   return <>
@@ -73,9 +80,9 @@ const Home = () => {
         </div>
       </div>
     </section>
+    {/* SEÇÃO PRINCIPAL FINAL*/}
 
     {/* SEÇÃO PRINCIPAL SEGUNDA PARTE*/}
-
       <section>
         <div className="container">
           <div className="lg:w-[470px] mx-auto">
@@ -139,8 +146,84 @@ const Home = () => {
               </div>
         </div>
       </section>
+    {/* SEÇÃO PRINCIPAL SEGUNDA PARTE FINAL*/}
 
-    {/* INICIO DA SEÇÃO SOBRE*/}
+    {/* COMPONENTE SOBRE */}
+      <Sobre />
+
+    {/* SEÇÃO SERVIÇOS*/}
+    <section>
+      <div className="container">
+        <div className="xl:w-[470px] mx-auto">
+          <h2 className="heading text-center">Nossos serviços</h2>
+          <p className="text__para text-center">Cuidados especializados para todos, garantimos uma qualidade de classe mundial.</p>
+        </div>
+
+        <ServiceList />
+      </div>
+    </section>
+    {/* SEÇÃO SERVIÇOS FINAL*/}
+
+    {/* SEÇÃO RECURSOS*/}
+    <section>
+      <div className="container">
+          <div className="flex items-center justify-between flex-col lg:flex-row">
+            {/*RECURSOS CONTEUDO*/}
+          <div className="xl:w-[530px]">
+            <h2 className="heading">Solicite cuidadores virtualmente <br/> a qualquer hora.</h2>
+
+            <ul className="pl-4">
+              <li className="text__para">
+                  1. Agende o serviço diretamente através do nosso sistema de agendamento fácil e rápido.
+              </li>
+              <li className="text__para">
+                  2. Encontre o cuidador ideal para suas necessidades e entre em contato diretamente através da plataforma.
+              </li>
+              <li className="text__para">
+                  3. Verifique a disponibilidade do cuidador e selecione o horário mais adequado para o encontro, com total flexibilidade.
+              </li>
+            </ul>
+              <Link to='/'><button className="btn">Saiba Mais</button></Link>
+          </div>
+
+              {/*RECURSOS IMAGEM*/}
+              <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
+                <img className="w-3/4" src={img4} alt="Imagem Recursos" />
+
+                <div className="w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:px-4 lg:pb-[26px] rounded-[10px]">
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-[6px] lg:gap-3">
+                      <p className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-headingColor font-[600]">
+                        Seg, 24
+                      </p>
+                      <p className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-textColor font-[400]">
+                        10:00
+                      </p>
+                    </div>
+                      <span className="w-5 h-5 lg:w-[34px] lg:h-[34px] flex items-center justify-center bg-yellowColor rounded py-1 px-[6px] lg:py-3 lg:px-[9px]">
+                        <img src={img5} alt="Imagem video" />
+                      </span>
+                  </div>
+
+                  <div className="w-[65px] lg:w-[70px] bg-[#CCF0F3] py-1 px-2 lg:py-[6px] lg:px-[10px] text-[8px] leading-[8px] lg:text-[12px] lg:leading-4 text-irisBlueColor font-[500] mt-2 lg:mt-4 rounded-full">
+                    Marcado
+                  </div>
+
+                  <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]">
+                    <img src={icon4} alt="Icone" />
+                    <h4 className="text-[10px] leading-3 lg:text-[16px] lg:heading-[22px] font-[700] text-headingColor">
+                      Gustavo Miotto
+                    </h4>
+                  </div>
+
+                </div>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    
 
   </>
 };
