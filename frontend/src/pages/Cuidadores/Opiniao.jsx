@@ -4,6 +4,8 @@ import avatar from '../../assets/images/avatar-icon.png';
 
 import {AiFillStar} from 'react-icons/ai';
 
+import OpiniaoForm from './OpiniaoForm';
+
 const Opiniao = () => {
 
     const  [showFeedbackForm, setshowFeedbackForm] = useState(false)
@@ -33,7 +35,9 @@ const Opiniao = () => {
     </div>
 
 
-                <div className="text-center"><button className="btn">Fazer avaliação</button></div>
+        { !showFeedbackForm && <div className="text-center"><button className="btn" onClick={() => setshowFeedbackForm(true)}>Fazer avaliação</button></div>}
+
+        {showFeedbackForm && <OpiniaoForm />}
 
   </div>
 }
