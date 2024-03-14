@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import SobreCuidadores from './SobreCuidadores';
 import Opiniao from './Opiniao';
+import PainelLateral from './PainelLateral';
 
 import img01 from '../../assets/images/doctor-img02.png';
 import starIcon from '../../assets/images/Star.png';
@@ -64,7 +65,9 @@ const Detalhes = () => {
 
           </div>
 
-          <div></div>
+          <div>
+            <PainelLateral/>
+          </div>
         </div>
       </div>
   </section>
