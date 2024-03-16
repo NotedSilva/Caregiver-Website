@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {Link} from 'react-router-dom';
 
@@ -6,6 +6,38 @@ import img01 from '../assets/images/signup.gif';
 import avatar from '../assets/images/doctor-img01.png';
 
 const Cadastro = () => {
+
+  const [selectedFile, setSelectedFile] = useState(null)
+  const [previewURL, setPreviewURL] = useState("")
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    photo: selectedFile,
+    gender: '',
+    role: 'Usuário',
+  });
+
+  const handleInputChange = e => {
+    setFormData(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
+  };
+
+  const handleFileInputChange = async (event) => {
+
+    const file =event.target.files[0]
+
+    // continuação da funcionalidade
+
+    console.log(file)
+  };
+
+  const submitHandler = async event=> {
+    event.preventDefault()
+  }
+
+
+
   return <section className="max-w-[1170px] mx-auto">
     <div className="grid grid-cols-1 lg:grid-cols-2">
       {/* IMAGEM CENTRAL */}
@@ -20,13 +52,14 @@ const Cadastro = () => {
         <h3 className="text-headingColor text-[22px] leading-8 9 font-boldmb-10">
           Criar uma<span className="text-orange-500"> Conta</span></h3> 
 
-        <form>
+        <form onSubmit={submitHandler}>
         <div className="mb-5">
             <input 
               type="text"
               placeholder="Nome completo"
               name="name" 
-              value=""
+              value={formData.name}
+              onChange={handleInputChange}
               className="w-full pr-4 py-3 border-b border-solid border-[#778899] focus:outline-none focus:border-b-orange-500
               text-[16px] leading-7 text-headingColor placeholder:text-textColor  cursor-pointer"
               required
@@ -37,7 +70,8 @@ const Cadastro = () => {
               type="email"
               placeholder="Endereço de email"
               name="email" 
-              value=""
+              value={formData.email}
+              onChange={handleInputChange}
               className="w-full pr-4 py-3 border-b border-solid border-[#778899] focus:outline-none focus:border-b-orange-500
               text-[16px] leading-7 text-headingColor placeholder:text-textColor  cursor-pointer"
               required
@@ -48,7 +82,8 @@ const Cadastro = () => {
               type="password"
               placeholder="Senha"
               name="password" 
-              value=""
+              value={formData.password}
+              onChange={handleInputChange}
               className="w-full pr-4 py-3 border-b border-solid border-[#778899] focus:outline-none focus:border-b-orange-500
               text-[16px] leading-7 text-headingColor placeholder:text-textColor  cursor-pointer"
               required
@@ -63,6 +98,8 @@ const Cadastro = () => {
               Você é um: 
                <select 
               name="role"
+              value={formData.role}
+              onChange={handleInputChange}
               className="text-textColor font-semibold text-[15px] ml-4 leading-7 px-5 py-3
               focus:outline-none"
               >
@@ -77,6 +114,8 @@ const Cadastro = () => {
               Gênero: 
                <select 
               name="gender"
+              value={formData.gender}
+              onChange={handleInputChange}
               className="text-textColor font-semibold text-[15px] ml-4 leading-7 px-5 py-3
               focus:outline-none"
               >
@@ -98,6 +137,7 @@ const Cadastro = () => {
                 <input type="file"
                 name="photo"
                 id="customFile"
+                onChange={handleFileInputChange}
                 accept=".jpg, .png"
                 className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
                 />
