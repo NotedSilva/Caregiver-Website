@@ -3,6 +3,12 @@ import Caregiver from '../models/CuidadoresSchema.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
+const generateToken = user => {
+    return jwt.sign({id:user._id, role:user.role}, process.env.JWT_SECRET_key, {
+        expiresIn: "15d",
+    })
+}
+
 
 export const register = async (req, res) => {
 
@@ -13,10 +19,10 @@ export const register = async (req, res) => {
         let user = null
 
         if(role==='usuario'){
-            user =  User.findOne({email})
+            user = await User.findOne({email})
         }
         else if(role==='cuidador'){
-            user = Caregiver.findOne({email:email})
+            user = await Caregiver.findOne({email})
         }
 
         // checar se o usuário existe
@@ -50,13 +56,63 @@ export const register = async (req, res) => {
             })
         }
 
+        await user.save()
+
+        res.status(200).json({success: true, message:'Usuário criado com sucesso'})
 
 
-    } catch (err) {}
+
+    } catch (err) {
+        res.status(500).json({success: false, message:'Erro na criação do usuário, tente novamente!'})
+    }
 };
 
 export const login = async (req, res) => {
+
+    const {email, password} = req.body
+
     try {
-    } catch (err) {}
+
+        let user = null
+
+        const usuario = await User.findOne({email})
+        const cuidador = await Caregiver.findOne({email})
+
+        if(usuario){
+            user = usuario
+        }
+        if(cuidador){
+            user = cuidador
+        }
+
+        // checar se o usuário existe ou não
+
+        if(!user){
+            return res.status(404).json({message: "Usuário não encontrado"});
+        }
+
+        // comparativo de senhas
+
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+        if(!isPasswordMatch){
+            return res.status(400).json({ status:false, message: "Credenciais inválidas"});
+        }
+
+        // gerar token
+
+        const token = generateToken(user);
+
+        const {password, role, appointments, ...rest} = user._doc
+
+        res
+            .status(200)
+            .json({ status:true, message: "Conectado com sucesso", token, data:{...rest}, role});
+
+    } catch (err) {
+        res
+            .status(500)
+            .json({ status:false, message: "Falha ao conectar-se"});
+    }
 };
 
