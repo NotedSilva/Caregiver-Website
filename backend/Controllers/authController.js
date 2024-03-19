@@ -1,5 +1,5 @@
 import User from '../models/UsuarioSchema.js';
-import Caregiver from '../models/CuidadoresSchema.js';
+import Caregiver from '../models/CuidadorSchema.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
