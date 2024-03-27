@@ -1,27 +1,27 @@
 export const duvidas = [
     {
-      question: "What is your medical care?",
+      question: "Como se cadastrar como cuidador?",
       content:
-        "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+        "Para se cadastrar como cuidador na plataforma Caregiver. \n Acesse o site ou aplicativo Caregiver.\n Clique em Seja Cuidador.\n - Preencha o formulário de inscrição com suas informações pessoais, experiência, habilidades e certificações.\nAguarde a aprovação da sua inscrição pela equipe Caregiver.",
     },
     {
-      question: "What happens if I need to go a hospital?",
+      question: "Como fazer a contratação de um cuidador?",
       content:
-        "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+        "Para encontrar um cuidador na plataforma Caregiver.\n Faça login na sua conta ou cadastre-se como usuário.\n Navegue pelos perfis de cuidadores disponíveis.",
     },
     {
-      question: "What happens if I need to go a hospital?",
+      question: "Como funciona o sistema de pagamento?",
       content:
-        "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+        "A plataforma Caregiver oferece um sistema de pagamento integrado. Os detalhes do pagamento podem variar, mas geralmente, o pagamento é processado de forma segura e transparente através da plataforma.",
     },
     {
-      question: "Can I visit your medical office?",
+      question: "Como são feitas as avaliações e feedbacks?",
       content:
-        "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+        "As avaliações e feedbacks são uma parte essencial da plataforma Caregiver. Após a conclusão de um serviço, tanto o usuário quanto o cuidador podem avaliar um ao outro. Isso ajuda a criar um ambiente confiável e permite que outros usuários tomem decisões informadas ao escolher um cuidador ou um cliente.",
     },
     {
-      question: "Does you provide urgent care?",
+      question: "Como posso cancelar uma solicitação?",
       content:
-        "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+        "Para cancelar uma solicitação na plataforma Caregiver, acesse sua conta, vá para a seção de reservas e encontre a reserva que deseja cancelar. Clique em 'Cancelar solicitação' e siga as instruções fornecidas. Lembre-se de que pode haver políticas de cancelamento e taxas associadas, então verifique os termos antes de prosseguir com o cancelamento.",
     },
   ];
